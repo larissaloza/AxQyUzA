@@ -1,0 +1,11 @@
+Model Information:
+* title:	Anthro Shark
+* source:	https://sketchfab.com/3d-models/anthro-shark-a0f668cc3b3440c1bc29e2a7ecda9b54
+* author:	7PLUS (https://sketchfab.com/7plus)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Anthro Shark" (https://sketchfab.com/3d-models/anthro-shark-a0f668cc3b3440c1bc29e2a7ecda9b54) by 7PLUS (https://sketchfab.com/7plus) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

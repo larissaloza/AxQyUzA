@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a AxQyUzA... Espera un momento  :D</title>
+<!-- icono del la pestaña -->
+    <link rel="shortcut icon" href="./imagenes/inflable.png">
+<!-- link de la libreria para leer las etiquetas de aframe -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+<!-- script para gifs -->
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+<!-- para leer animación -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+<!-- script para texturas -->
+    <script src="https://cdn.jsdelivr.net/npm/aframe-enviropacks@latest/aframe-enviropacks.js"></script>
+<!-- script para texto en 3d -->
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+<!-- scripts para colisiones y físicas -->
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script> src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js" </script>
+<!-- scripts movimiento de la cámara -->
+    <script> src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js" </script>
+    <script> src="https://unpkg.com/super-hands@2.0.2/dist/super-hands.min.js" </script>
+<!-- scripts para partículas-->
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+    <script src="https://unpkg.com/aframe-gradient-sky@1.2.0/dist/gradientsky.min.js"></script>
+<!-- scripts para enviroments-->
+    <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+<!-- scripts para truco de transparencia en modelos 3d-->
+<script>
+    AFRAME.registerComponent('model-opacity', {
+      schema: {default: 1.0},
+      init: function () {
+        // this.el.addEventListener('model-loaded', this.update.bind(this));
+        this.el.addEventListener("model-loaded", ()=>{
+          const object3DEl = this.el.object3DMap;
+   ;
+
+        var mesh = this.el.getObject3D('mesh'); // For hand, the result is undefined
+        // var mesh = this.el.object3DMap.mesh; // For hand, the result is undefined
+        console.log(mesh);
+        var data = this.data;
+        if (!mesh) { return; }
+        mesh.traverse(function (node) {
+          if (node.isMesh) {
+       ;
+            node.material.opacity = data;
+            node.material.transparent = data < 1.0;
+            node.material.needsUpdate = true;
+          }
+        });
+        }, 2000)
+
+
+      },
+      update: function () {
+        var mesh = this.el.getObject3D('mesh');
+        var data = this.data;
+        if (!mesh) { return; }
+        mesh.traverse(function (node) {
+          if (node.isMesh) {
+          ;
+            node.material.opacity = data;
+            node.material.transparent = data < 1.0;
+            node.material.needsUpdate = true;
+          }
+        });
+      }
+    });
+  </script>
+
+
+<!-- <style>
+    a-scene{
+        height:600px;
+        width:1200px;
+    }
+</style> -->
+
+</head>
+<body>
+
+    <!-- AQUI SE PUEDE AÑADIR CODIGO HTML Y CSS-->
+
+<!-- <div id="myEmbeddedScene"> -->
+<!-- 
+<a-scene embedded physics= "gravity:0; debug:true" vr-mode-ui="enabled:true">   -->
+    <a-scene loading-screen="dotsColor:black; backgroundColor:black" physics= "gravity:0; debug:true" vr-mode-ui="enabled:true">  
+
+<a-assets>
+
+      <!-- assets imagenes-->
+      <img  id="flamingorosa" src="./imagenes/flamingorosa.png">
+      <img  id="inflable" src="./imagenes/inflable.png">
+      <img  id="marsublime" src="./imagenes/marsublime.png">
+      <img  id="nalgas" src="./imagenes/nalgas.png">
+      <img  id="no-homo" src="./imagenes/no-homo.png">
+      <img  id="underwater" src="./imagenes/underwater.png">
+      <img  id="water-pleasure" src="./imagenes/water-pleasure.png">
+      <img  id="fade-sky" src="./imagenes/fade-sky.png">
+      <img  id="purple-water" src="./imagenes/purple-water.png">
+      <img  id="hue" src="./imagenes/hue.png">
+      <img  id="pool" src="./imagenes/pool.png">
+      <img  id="boy" src="./imagenes/boy.png">
+      <img  id="swim" src="./imagenes/swim.png">
+      <img  id="recorte" src="./imagenes/recorte.jpg">
+      <img  id="spit" src="./imagenes/spit.png">
+      <img  id="cry" src="./imagenes/cry.png">
+      <img  id="water-greek" src="./imagenes/water-greek.png">
+      <img  id="pink-pool" src="./imagenes/pink-pool.png">
+      <img  id="pink-ocean" src="./imagenes/pink-ocean.png">
+      <img  id="please" src="./imagenes/please.png">
+      <img  id="kill-me" src="./imagenes/kill-me.png">
+      <img  id="windows-pc" src="./imagenes/windows-pc.png">
+      <img  id="purple-clouds" src="./imagenes/purple-clouds.png">
+      <img  id="bath" src="./imagenes/bath.png">
+      <img  id="clouds" src="./imagenes/clouds.png">
+      <img  id="hue-sky" src="./imagenes/hue-sky.png">
+      <img  id="bienvenida" src="./imagenes/bienvenida.jpg">
+      <img  id="LL" src="./imagenes/LL.png">
+
+<!-- assets modelos-->
+     <a-asset-item  id="singing-fish" src="./modelos/singing-fish/singing-fish.gltf"></a-asset-item>
+     <a-asset-item  id="fish-shop" src="./modelos/fish-shop/fish-shop.gltf"></a-asset-item>
+     <a-asset-item  id="fish-1" src="./modelos/fish-1/fish-1.gltf"></a-asset-item>
+     <a-asset-item  id="jellyfish" src="./modelos/jellyfish/jellyfish.gltf"></a-asset-item>
+     <a-asset-item  id="tear" src="./modelos/tear/tear.gltf"></a-asset-item>
+     <a-asset-item  id="beach-chair" src="./modelos/beach-chair/beach-chair.gltf"></a-asset-item>
+     <a-asset-item  id="fish-inktober" src="./modelos/fish-inktober/fish-inktober.gltf"></a-asset-item>
+     <a-asset-item  id="sr-shark" src="./modelos/sr-shark/sr-shark.gltf"></a-asset-item>
+     <a-asset-item  id="fountain" src="./modelos/fountain/fountain.gltf"></a-asset-item>
+     <a-asset-item  id="fish-high" src="./modelos/fish-high/fish-high.gltf"></a-asset-item>
+     <a-asset-item  id="otro-jellyfish" src="./modelos/otro-jellyfish/otro-jellyfish.gltf"></a-asset-item>
+     <a-asset-item  id="alga" src="./modelos/alga/alga.gltf"></a-asset-item>
+     <a-asset-item  id="coral" src="./modelos/coral/coral.gltf"></a-asset-item>
+     <a-asset-item  id="bucket" src="./modelos/bucket/bucket.gltf"></a-asset-item>
+     <a-asset-item  id="delfin" src="./modelos/delfin/delfin.gltf"></a-asset-item>
+     <a-asset-item  id="gomita-red" src="./modelos/gomita-red/gomita-red.gltf"></a-asset-item>
+     <a-asset-item  id="palm" src="./modelos/palm/palm.gltf"></a-asset-item>
+     <a-asset-item  id="bottles" src="./modelos/bottles/bottles.gltf"></a-asset-item>
+     <!-- <a-asset-item  id="ocean1" src="./modelos/ocean1/ocean1.gltf"></a-asset-item> -->
+     <a-asset-item  id="starfish" src="./modelos/starfish/starfish.gltf"></a-asset-item>
+     <a-asset-item  id="fish-bag" src="./modelos/fish-bag/fish-bag.gltf"></a-asset-item>
+     
+
+</a-assets>
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+</a-entity>
+
+
+
+
+
+
+
+
+<!-- cielo -->
+    <a-sky src="./cielos/cielo-6.jpg" animation="property:rotation; to: 0 360 0; loop:true; dur:300000 " ></a-sky>
+
+<!-- piso -->
+    <a-image static-body src="./marsegun.jpg" scale="100 100 100" position="2.435 0.00302 0.3412" rotation="-88.78382106008696 3.7712082075510787 176.22978566854349" ></a-image>
+
+<!-- objetos primitivos de a-frame} -->
+     <a-triangle color="red" position="0 2.020 0" scale="2 2 2" vertex-c="1 -1 0" ></a-triangle>
+     <a-plane position="-13 5.81369 40.04395" material="repeat: 2 2; transparent: true; alphaTest: 0.5; side: double" scale="3.72461 6.66569 2" animation="property: rotation; to: 0 360 0; dir: alternate; dur: 7000; easing: linear; loop: true"></a-plane>
+     <a-torus-knot src="#hue" scale="0.492 0.493 0.493" position="-36.33164 6.25977 -37.3803" arc="180" radius="5" wireframe="true" geometry="p: 3; q: 8; segmentsRadial: 6" rotation="0 90 0" ></a-torus-knot>
+     
+<!-- llamando imagenes -->
+     <a-image src="#underwater" scale="-20.75591 39.77857 4.15118" position="52.36653 20.74934 -40.52311"  rotation="0 90 0"></a-image>
+     <a-image src="#LL" scale="5.12678 5.12678 5.12678" position="22.44519 12.52775 -83.31313"></a-image>
+     <a-image src="#pool" scale="-20.75591 45 4.15118" position="-47.60434 21.30336 40.05852"  rotation="0 90 0"></a-image>
+     <a-image src="#cry" scale="-3.03911 6.58896 1.2766" position="-47.60434 4.07228 -18.30273" rotation="0 90 0"></a-image>
+     <a-image src="#nalgas" scale="-5 5 1" position="50.96834 3.46351 0.29739" rotation="0 90 0"></a-image>
+     <a-image src="#spit" scale="-5 5 1" position="50.96834 3.46351 -7.48116" rotation="0 90 0" ></a-image>
+     <a-image src="#swim" scale="-5 5 1" position="50.96834 3.46351 8.30272" rotation="0 90 0"></a-image>
+     <a-image src="#recorte" scale="-5 5 1" position="50.96834 10.30243 8.31904" rotation="0 90 0" ></a-image>
+     <a-image src="#boy" scale="-5 5 1" position="50.96834 10.3471 0.29739"  rotation="0 90 0"></a-image>
+     <a-image src="#inflable" scale="-20.70566 10.71627 10.71627" position="35.68415 72.87987 107.96345" rotation="0 35.59213823352674 0"></a-image>
+     <a-image src="#no-homo" scale="-2.63355 2.63355 0.52671" position="-33.26331 2 -7.5276"></a-image>
+     <a-image src="#marsublime" scale="3 5.67552 3" position="-13 5.81504 40.1"  rotation="0 0 0 "animation="property: rotation; to: 0 360 0; dir: alternate; dur: 7000; easing: linear; loop: true"></a-image>
+     <a-image src="#flamingorosa" scale="3 5.67552 3" position="-13 5.81504 40"  rotation="0 0 0 "animation="property: rotation; to: 0 360 0; dir: alternate; dur: 7000; easing: linear; loop: true"></a-image>
+     <a-image src="#fade-sky" scale="-5 10.44717 1" position="52.923 6.04292 23.99785"  rotation="0 90 0"></a-image>
+     <a-image src="#water-pleasure" scale="-5 10.75963 1" position="52.92324 5.85629 39.46683"  rotation="0 90 0"></a-image>
+     <a-image src="#water-greek" scale="-5 10.75963 1" position="52.92324 5.85629 47.22534"  rotation="0 90 0"></a-image>
+     <a-image src="#pink-pool" scale="-5 10.75963 1" position="42.4467 5.85629 50.53175"  ></a-image>
+     <a-image src="#pink-ocean" scale="-5 10.75963 1" position="34.88035 5.85629 50.53175"  ></a-image>
+     <a-image src="#please" scale="-5 10.75963 1" position="27.21994 5.85629 50.53175"  ></a-image>
+     <a-image src="#kill-me" scale="-5 10.75963 1" position="19.57462 5.85629 50.53175"></a-image>
+     <a-image src="#windows-pc" scale="-5 10.75963 1" position="49.69653 5.85629 50.53175" ></a-image>
+     <a-image src="#purple-clouds" scale="-5 10.44717 1" position="3.73446 6.04292 50.532" ></a-image>
+     <a-image src="#bath" scale="-5 10.44717 1" position="-4.00896 6.04292 50.532" rotation="0 0 0"></a-image>
+     <a-image src="#clouds" scale="-5 10.44717 1" position="11.60583 6.04292 50.532"  ></a-image>
+     <a-image src="#hue-sky" scale="-5 10.44717 1" position="52.923 6.04292 31.65957"  rotation="0 90 0"></a-image>
+     <a-image src="#purple-water" scale="-12.947 26.53755 1" position="-47.35996 6.81019 -37.48415"  rotation="0 90 90"></a-image>
+     <a-image src="#purple-water" scale="-26.11413 26.60257 1" position="-34.1235 13.28896 -37.2353"  rotation="270 0 90"></a-image>
+     <a-image src="#purple-water" scale="-12.947 26.538 1" position="-34.14074 6.88432 -50.20353"  rotation="0 0 90"></a-image>
+     <a-image src="#purple-water" scale="-12.947 26.538 1" position="-34.141 6.88432 -24.34575"  rotation="0 0 90"></a-image>
+     <a-image src="#bienvenida" scale="-4.28364 2.73217 0.22374" position="-33.2002 2.120 -11.07797" rotation="0 180 0" material="" geometry=""></a-image>
+
+<!-- gifs -->
+     <a-entity position="-29.71643 6.24359 -7.22303" geometry="primitive: plane; width: 4; height: 2" material="shader: gif; src: url(./gifs/nerv.gif); repeat: 2 2; transparent: true; alphaTest: 0.5; side: double" rotation="0 90 0"></a-entity>
+
+     <a-entity position="-3.07354 28.35153 101.30808" scale="-2.58892 8.43066 6.10749" geometry="primitive: plane; width: 4; height: 2" material="shader: gif; src: url(./gifs/fuji.gif); repeat: 2 2; transparent: true; alphaTest: 0.5; side: double" rotation=""></a-entity>
+
+     <a-entity position="21.89635 28.35153 -83.37938" scale="6.67179 8.43066 6.10749" geometry="primitive: plane; width: 4; height: 2" material="shader: gif; src: url(./gifs/car-sky.gif); repeat: 2 2; transparent: true; alphaTest: 0.5; side: double" rotation=""></a-entity>
+
+     <a-entity position="-16.71833 6.87791 -49.9002" scale="2.11604 6.58526 4.77061" geometry="primitive: plane; width: 4; height: 2" material="shader: gif; src: url(./gifs/ondas.gif); repeat: 2 2; transparent: true; alphaTest: 0.5; side: double" rotation=""></a-entity>
+
+     <a-entity position="-41.4098 12.16403 -17.9067" scale="-1.12799 2.19311 2.19311" geometry="primitive: plane; width: 4; height: 2" material="shader: gif; src: url(./gifs/compunaranja.gif); repeat: 2 2; transparent: true; alphaTest: 0.5; side: double" rotation="0 90 0"></a-entity>
+
+     <a-entity position="50.968 19.28783 -19.23712" scale="-1.91883 2.52576 -1.4293" geometry="primitive: plane; width: 4; height: 2" material="shader: gif; src: url(./gifs/america-online.gif); repeat: 2 2; transparent: true; alphaTest: 0.5; side: double" rotation="0 90 0"></a-entity>
+
+     <a-entity position="-47.16361 15.96613 21.03844" scale="-1.83555 3.60229 3.60229" geometry="primitive: plane; width: 4; height: 2" material="shader: gif; src: url(./gifs/heaven.gif); repeat: 2 2; transparent: true; alphaTest: 0.5; side: double" rotation="0 90 0"></a-entity>
+
+<!-- llamando modelos -->
+     <a-entity position="-29.38718 2.45228 -5.09335" gltf-model="#singing-fish" scale="1.5 1.5 1.5" animation="property: position; to: -29.38718 2.45228 -9.936; dir: alternate; dur: 8000; easing: linear; loop: true" rotation="0 90 0"></a-entity>
+
+     <a-entity position="-33.154 0.583 -7.404" gltf-model="#fish-shop" scale="2 2 2"></a-entity>
+
+     <a-entity position="11.99444 19.20191 -28.24787" animation="property: position; to: 11.99444 10.20191 -28.24787; dir: alternate; dur: 8000; easing: linear; loop: true" gltf-model="#fish-1" scale="2 2 2"></a-entity>
+
+     <a-entity position="-29.05535 2.247 7.30818" gltf-model="#jellyfish" scale="0.1822 0.21595 -0.18143"></a-entity>
+
+     <a-entity position="28.447 1.66808 18.91587" animation="property: rotation; to: 0 360 0; dur: 9000; easing: linear; loop: true" gltf-model="#tear" scale="0.13176 0.15616 -0.1312"></a-entity>
+
+     <a-entity position="44.30496 -0.645 -18.91286" gltf-model="#beach-chair" scale="0.9235 0.9235 0.9235" rotation="0 -47.72 0"></a-entity>
+
+     <a-entity position="0 35 0" gltf-model="#fish-inktober" animation="property: rotation; to: 0 360 0; dir: alternate; dur: 6000; easing: linear; loop: true" scale="1.02217 1.02217 1.02217" rotation="0 228.12 0"></a-entity>
+
+     <a-entity position="-29.01529 7.65233 44.66339" gltf-model="#sr-shark" scale="9.11358 9.11358 9.11358" rotation="0 128.12 0"></a-entity>
+
+<a-entity dynamic-body position="0 6.53148 0" gltf-model="#fountain" scale="2.23787 2.23787 2.23787" rotation="0 128.12 0"></a-entity>
+
+     <a-entity position="40 0.37951 40" animation="property: position; to: 40 -2.6 40; dir: alternate; dur: 6000; easing: linear; loop: true" gltf-model="#fish-high" scale="0.35104 0.35104 0.35104" rotation=""></a-entity>
+
+     <a-entity position="11.69084 18.7857 36.26224" animation="property: rotation; to: 0 360 0; dir: alternate; dur: 2000; easing: linear; loop: true" gltf-model="#otro-jellyfish" scale="1.69378 1.69378 1.69378" rotation=""></a-entity>
+
+     <a-entity position="24.81772 -1.40567 -1.06846" animation="property: position; to: 24.81772 -2.40567; dir: alternate; dur: 6000; easing: linear; loop: true" gltf-model="#alga" scale="4.73218 4.73218 4.73218" rotation=""></a-entity>
+
+     <a-entity position="11.69084 0.4591 -38.41582" animation="property: position; to: 11.69084 -1 -38.41582; dir: alternate; dur: 6000; easing: linear; loop: true" gltf-model="#alga" scale="2.87449 2.87449 2.87449" rotation=""></a-entity>
+
+     <a-entity position="-24.92937 -1.21957 24.00883" animation="property: position; to: -24.92937 -2 24.00883; dir: alternate; dur: 6000; easing: linear; loop: true" gltf-model="#alga" scale="1.69378 1.69378 1.69378" rotation=""></a-entity>
+
+     <a-entity position="42.4112 -12.31382 -76.93169" gltf-model="#coral" scale="5.94256 5.94256 5.94256" rotation=""></a-entity>
+
+     <a-entity position="18.74457 0.25531 -19.38898" gltf-model="#bottles" scale="0.23171 0.23171 0.23171" rotation=""></a-entity>
+
+     <a-entity position="35 0 2.97375" gltf-model="#bucket" scale="0.85239 0.85239 0.85239" rotation=""></a-entity>
+
+     <a-entity position="-13.74157 4.30124 -37.41017" model-opacity=".9" animation="property: position; to: -13.74157 4.30124 28.201; dir: alternate; dur: 10000; easing: easeInOutElastic; loop: true" gltf-model="#gomita-red" scale="0.14287 0.14287 0.14287" rotation="0 90 0"></a-entity>
+
+     <a-entity position="26.09192 0 27.15208"  animation="property: rotation; to: 0 360 0; dur: 4000; easing: linear; loop: true" gltf-model="#delfin" scale="2.83594 2.83594 2.83594" rotation=""></a-entity>
+
+     <a-entity position="-2.12808 -4.10349 27.15208" gltf-model="#palm" scale="0.97288 0.97288 0.97288"></a-entity>
+
+     <!-- <a-entity position="-16.02171 -2 -9.5919" animation-mixer="" gltf-model="#ocean1" model-opacity="0.7" scale="7.27591 1.1 7.27591"></a-entity> -->
+
+     <a-entity position="0 0.65529 -26.9997" animation-mixer="" gltf-model="#fish-bag" scale="2.07343 2.1889 1.80628"></a-entity>
+
+     <a-entity position="-29.36938 0.75236 20"  gltf-model="#starfish" scale="1.62518 0.24378 1.62518"></a-entity>
+
+
+ <!-- audio  -->
+     <a-sound src="src: url(./sonidos/crickets.mp3)" autoplay="true" loop="true" volume="2" position="-33.63338 2 -10.44424" sound=""></a-sound>
+
+     <a-sound src="src: url(./sonidos/birds.wav)" autoplay="true" loop="true" volume="2" position="0 15 0"></a-sound>
+    
+     <a-sound src="src: url(./sonidos/mar.wav)" autoplay="true" loop="true" volume="3" position="0 0 0"></a-sound> 
+    
+     <a-sound src="src: url(./sonidos/ocean-birds.wav)" autoplay="true" loop="true" volume="2" position="-23.7937 2 -16"></a-sound>
+
+<!-- luces -->
+     <a-entity light="type: ambient; color: #cccccc; intensity: 2" visible="" position="0 35.47499 0"></a-entity>
+
+     <a-light position="-18.32147 1.11211 23.65253" light="type: spot; color: #ffffff" rotation="-19.17 -0.56 0"></a-light>
+
+     <a-light position="28.4887 6.2 38.5114" light="type: spot; color: #ffffff; intensity: 2" rotation="-32.39331486331135 -19.157989795789337 6.198257427725245"></a-light>
+
+     <a-light position="28.4887 1.03295 12.64139" light="type: spot; color: #ffffff; intensity: 2" rotation="-12.711068684977313 -160.43333925678667 14.236282335615565"></a-light>
+
+     <a-light position="4.80487 23.21749 -17.35237" light="type: spot; color: #ffffff" rotation="-19.17 -0.56 0"></a-light>
+
+ <!-- camara-->
+     <a-entity movement-controls kinematic-body>
+     <a-entity id="camera" camera position="-33.200 1.6 -8.078" look-controls></a-entity>
+     </a-entity>   
+
+
+</a-scene>
+
+<!-- </div> -->
+
+</body>
+</html>
